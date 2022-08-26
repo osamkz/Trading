@@ -695,7 +695,7 @@ if(infoType == 'DataSeer'):
 
 
    START = "2015-01-01"
-   TODAY = date.today().strftime("%y-%m-%d")
+   TODAY = datetime.date.today()
 
    @st.cache
    def load_data1(ticker):
