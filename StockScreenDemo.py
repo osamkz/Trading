@@ -586,7 +586,7 @@ if(infoType == 'Sentiment'):
             # read the text from each tr tag into text
             # get text from a only
             text = tex.get_text()
-	    headline = x.a.get_text()
+	    headline = tex.a.get_text()
             # splite text in the td tag into a list 
             date_scrape = tex.td.text.split()
             # if the length of 'date_scrape' is 1, load 'time' as the only element
