@@ -397,7 +397,7 @@ if(infoType == 'Keras Prediction'):
      datetime.date.today())
     st.write('To:', d22)
 
-    st.title("stock prediction")
+    st.title("Stock Prediction with Keras Model")
     user_input=ticker
     df=pdr.DataReader(ticker, data_source="yahoo",start=d11,end=d22)
 
