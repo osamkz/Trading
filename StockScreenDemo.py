@@ -543,7 +543,7 @@ if(infoType == 'Prophet Prediction'):
    predictor = Prophet()
    predictor.fit(df_train)
 
-   st.markdown("""## Please Select the number of years for the predicted trends""")
+   st.markdown("""## Please Select the number of years to predict the trend""")
 
    n_years = st.slider('Years of prediction:', 1, 4)
    period = n_years * 365
@@ -561,11 +561,10 @@ if(infoType == 'Prophet Prediction'):
 
 
    fcs,fch,fcs1 = st.columns(3)
-   fch.markdown("""## Forecated Components""")
+   fch.markdown("""## Forecasted Components""")
    fig2 = predictor.plot_components(forecast)
    st.write(fig2)
 
-   st.caption('Made with Rivaldi')	
 	
 
 if(infoType == 'Sentiment'):
