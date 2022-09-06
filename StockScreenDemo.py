@@ -486,6 +486,7 @@ if(infoType == 'Keras Prediction'):
 
 if(infoType == 'Prophet Prediction'):
    
+   st.title("Stock Prediction with Prophet Model")
    tickerSymbol = ticker
    tickerData = yf.Ticker(tickerSymbol)
    alpha2,gamma2 = st.columns(2)
@@ -494,7 +495,7 @@ if(infoType == 'Prophet Prediction'):
 
 
    rhs, rh, rhs1 = st.columns((2.5,3,2))
-   rh.markdown("""### Let's have a look at some raw data""")
+   rh.markdown("""Data overview""")
    #period = st.radio('Choose the Duration of Schemantics',('1d','1mo','1y'))
 
    def load_data(ticker):
@@ -524,7 +525,7 @@ if(infoType == 'Prophet Prediction'):
 
 
    START = "2015-01-01"
-   TODAY = date.today().strftime("%Y-%m-%d")
+   TODAY = datetime.date.today()
 
    @st.cache
    def load_data1(ticker):
