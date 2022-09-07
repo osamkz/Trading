@@ -577,7 +577,6 @@ if(infoType == 'Sentiment'):
         html = BeautifulSoup(response,"html.parser")
         # Find 'news-table' in the Soup and load it into 'news_table'
         news_table = html.find(id='news-table')
-	print(news_table)
         return news_table
         # parse news into dataframe
     def parse_news(news_table):
@@ -665,6 +664,7 @@ if(infoType == 'Sentiment'):
     While the table below gives  the most recent headlines of the stock with the negative, neutral, positive and an aggregated sentiment score.
     '''.format(ticker)
     news_table = get_news(ticker)
+    print(news_table)
     parsed_news_df = parse_news(news_table)
     parsed_and_scored_news = score_news(parsed_news_df)
     fig_hourly = plot_hourly_sentiment(parsed_and_scored_news, ticker)
