@@ -581,25 +581,25 @@ if(infoType == 'Sentiment'):
         # parse news into dataframe
     def parse_news(news_table):
         parsed_news = []
-    
-        for x in news_table.findAll('tr'):
-            # read the text from each tr tag into text
-            # get text from a only
-            text = x.a.get_text()
-            # splite text in the td tag into a list 
-            date_scrape = x.td.text.split()
-            # if the length of 'date_scrape' is 1, load 'time' as the only element
+        for news_table in news_table.items():
+        	for x in news_table.findAll('tr'):
+            	# read the text from each tr tag into text
+            	# get text from a only
+            	text = x.a.get_text()
+            	# split text in the td tag into a list 
+            	date_scrape = x.td.text.split()
+            	# if the length of 'date_scrape' is 1, load 'time' as the only element
 
-            if len(date_scrape) == 1:
-                time = date_scrape[0]
+            	if len(date_scrape) == 1:
+                	time = date_scrape[0]
             
-            # else load 'date' as the 1st element and 'time' as the second    
-            else:
-                date = date_scrape[0]
-                time = date_scrape[1]
+           	 # else load 'date' as the 1st element and 'time' as the second    
+            	else:
+                	date = date_scrape[0]
+                	time = date_scrape[1]
         
-            # Append ticker, date, time and headline as a list to the 'parsed_news' list
-            parsed_news.append([date, time, text])
+           	 # Append ticker, date, time and headline as a list to the 'parsed_news' list
+            	parsed_news.append([date, time, text])
         
             # Set column names
             columns = ['date', 'time', 'headline']
