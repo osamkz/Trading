@@ -571,7 +571,7 @@ if(infoType == 'Sentiment'):
     
     def get_news(ticker):
         url = finviz_url + ticker
-        req = Request(url=url,headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0'}) 
+        req = Request(url=url,headers={'User-Agent': 'Chrome'}) 
         response = urlopen(req)    
         # Read the contents of the file into 'html'
         html = BeautifulSoup(response)
