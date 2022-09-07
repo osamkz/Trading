@@ -656,19 +656,19 @@ if(infoType == 'Sentiment'):
     def convert_df(df):
         return df.to_csv().encode('utf-8')
     
-    tickerSymbol = ticker
+    tickerSymb = ticker
     st.header("Stocks Sentiment based on news from FinViz")
-    st.subheader("Hourly and Daily Sentiment of {} Stock".format(tickerSymbol))
+    st.subheader("Hourly and Daily Sentiment of {} Stock".format(tickerSymb))
     description = '''
     The news headlines for the sentiment score are obtained from the FinViz website.
     The following charts averages the sentiment scores of {} stock hourly and daily.
     While the table below gives  the most recent headlines of the stock with the negative, neutral, positive and an aggregated sentiment score.
-    '''.format(tickerSymbol)
-    news_table = get_news(tickerSymbol)
+    '''.format(tickerSymb)
+    news_table = get_news(tickerSymb)
     parsed_news_df = parse_news(news_table)
     parsed_and_scored_news = score_news(parsed_news_df)
-    fig_hourly = plot_hourly_sentiment(parsed_and_scored_news, tickerSymbol)
-    fig_daily = plot_daily_sentiment(parsed_and_scored_news, tickerSymbol)
+    fig_hourly = plot_hourly_sentiment(parsed_and_scored_news, tickerSymb)
+    fig_daily = plot_daily_sentiment(parsed_and_scored_news, tickerSymb)
     st.plotly_chart(fig_hourly)
     st.plotly_chart(fig_daily)
 
@@ -687,7 +687,7 @@ if(infoType == 'ESG'):
 
    esg_data = pd.DataFrame()
    stock_df = stock.sustainability.T
-   stock_df['symbol'] = ticker
+   stock_df['symbol'] = 
    esg_data = esg_data.append(stock_df)
    new_esg_df = esg_data[['symbol', 'peerGroup', 'socialScore', 'governanceScore', 'totalEsg', 'environmentScore', 'esgPerformance']]
 
