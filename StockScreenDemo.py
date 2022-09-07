@@ -655,20 +655,20 @@ if(infoType == 'Sentiment'):
         return fig # instead of using fig.show(), we return fig and turn it into a graphjson object for displaying in web page later
     def convert_df(df):
         return df.to_csv().encode('utf-8')
-
+    
+    tickerSymbol = ticker
     st.header("Stocks Sentiment based on news from FinViz")
-    st.subheader("Hourly and Daily Sentiment of {} Stock".format(ticker))
+    st.subheader("Hourly and Daily Sentiment of {} Stock".format(tickerSymbol))
     description = '''
     The news headlines for the sentiment score are obtained from the FinViz website.
     The following charts averages the sentiment scores of {} stock hourly and daily.
     While the table below gives  the most recent headlines of the stock with the negative, neutral, positive and an aggregated sentiment score.
-    '''.format(ticker)
-    news_table = get_news(ticker)
-    print(news_table)
+    '''.format(tickerSymbol)
+    news_table = get_news(tickerSymbol)
     parsed_news_df = parse_news(news_table)
     parsed_and_scored_news = score_news(parsed_news_df)
-    fig_hourly = plot_hourly_sentiment(parsed_and_scored_news, ticker)
-    fig_daily = plot_daily_sentiment(parsed_and_scored_news, ticker)
+    fig_hourly = plot_hourly_sentiment(parsed_and_scored_news, tickerSymbol)
+    fig_daily = plot_daily_sentiment(parsed_and_scored_news, tickerSymbol)
     st.plotly_chart(fig_hourly)
     st.plotly_chart(fig_daily)
 
