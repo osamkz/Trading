@@ -687,7 +687,7 @@ if(infoType == 'ESG'):
 
    esg_data = pd.DataFrame()
    stock_df = stock.sustainability.T
-   stock_df['symbol'] = 
+   stock_df['symbol'] = ticker
    esg_data = esg_data.append(stock_df)
    new_esg_df = esg_data[['symbol', 'peerGroup', 'socialScore', 'governanceScore', 'totalEsg', 'environmentScore', 'esgPerformance']]
 
