@@ -45,9 +45,25 @@ st.sidebar.write("""
 """)
 
 snp500 = pd.read_csv("Datasets/SP500.csv")
-symbols = snp500['Symbol'].sort_values().tolist()        
+cac40 = pd.read_csv("Datasets/CAC40.csv")
+ftse100 = pd.read_csv("Datasets/FTSE100.csv")
+symbols = snp500['Symbol'].sort_values().tolist()
+symbolsCAC40 = cac40['Symbol'].sort_values().tolist()
+symbolsFTSE100 = ftse100['Symbol'].sort_values().tolist()
 # for extracting data from finviz
 finviz_url = 'https://finviz.com/quote.ashx?t='
+
+Universe = st.sidebar.radio(
+     "Select your Universe of Stock",
+     ('S&P 500', 'CAC 40', 'FTSE 100'))
+
+if Universe == 'S&P 500':
+	ticker = st.sidebar.selectbox('Choose a S&P 500 Stock',symbols)
+elif Universe == 'CAC 40':
+	ticker = st.sidebar.selectbox('Choose a CAC 40 Stock',symbolsCAC40)
+elif Universe == 'FTSE 100':
+	ticker = st.sidebar.selectbox('Choose a FTSE 100 Stock',symbolsFTSE100)
+traday = pdr.DataReader(ticker, data_source="yahoo")
 
 ticker = st.sidebar.selectbox(
     'Choose a S&P 500 Stock',
