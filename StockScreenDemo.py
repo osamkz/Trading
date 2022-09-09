@@ -65,9 +65,6 @@ elif Universe == 'FTSE 100':
 	ticker = st.sidebar.selectbox('Choose a FTSE 100 Stock',symbolsFTSE100)
 traday = pdr.DataReader(ticker, data_source="yahoo")
 
-ticker = st.sidebar.selectbox(
-    'Choose a S&P 500 Stock',
-     symbols)
 
 traday = pdr.DataReader(ticker, data_source="yahoo")
 
