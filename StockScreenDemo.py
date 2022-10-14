@@ -551,6 +551,7 @@ if(infoType == 'Prophet Prediction'):
 
    df_train = data1[['Date','Close']]
    df_train = df_train.rename(columns = {'Date':'ds','Close':'y'})
+   df_train["ds"] =  pd.to_datetime(df_train['ds'], format='%d-%M-%Y').dt.strftime('%d-%m-%Y')
    #st.write(df_train)
 
    predictor = Prophet()
